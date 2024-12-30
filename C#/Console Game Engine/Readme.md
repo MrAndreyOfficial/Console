@@ -55,7 +55,7 @@ while (true)
 }
 ```
 
-## Classes:
+## Classes and their methods:
 ```
 GameEngine.Input:
     static class Input:
