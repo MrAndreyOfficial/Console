@@ -1,7 +1,8 @@
 This is a small game engine for simple console games.
 
-# Example:
+# Examples:
 
+## 1. Maze Game
 ```
 using GameEngine.Input;
 using GameEngine.Main;
@@ -55,6 +56,16 @@ while (true)
 }
 ```
 
+## 2. Randomizer
+```
+using GameEngine.Math;
+
+while (true)
+{
+    Console.WriteLine(Randomizer.Generate(0, 100));
+    await Task.Delay(200);
+}
+```
 ## Classes and their methods:
 ```
 GameEngine.Input:
@@ -80,6 +91,11 @@ GameEngine.Main:
 
 GameEngine.Math:
     public struct Vector(int x, int y)
+    public static class Randomizer:
+        Generate(int, int)
+        Generate(long, long)
+        Generate(float, float)
+        Generate(double, double)
 
 GameEngine.UI:
     public class Text(Vector position, string content):
