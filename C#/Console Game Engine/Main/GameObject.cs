@@ -10,6 +10,12 @@ public abstract class GameObject(Vector position, char? symbol)
 
     public Vector Position => _position;
 
+    public virtual void Update()
+    {
+        Console.SetCursorPosition(_position.X, _position.Y);
+        Console.WriteLine(_symbol);
+    }
+
     public void SetPosition(int y, int x)
     {
         _position.Y = y;
@@ -17,10 +23,4 @@ public abstract class GameObject(Vector position, char? symbol)
     }
 
     public void SetPosition(Vector position) => _position = position;
-
-    public virtual void Update()
-    {
-        Console.SetCursorPosition(_position.X, _position.Y);
-        Console.WriteLine(_symbol);
-    }
 }
