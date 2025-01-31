@@ -32,7 +32,7 @@ int main() {
             counter.decrease();
         }
         else {
-            cout << "I don't this action." << endl;
+            cout << "I don't know this action." << endl;
             continue;
         }
 
