@@ -1,6 +1,6 @@
 ﻿namespace GameEngine.Main;
 
-public static class Map
+public static class MapGenerator
 {
     private static char[,] s_map =
     {
@@ -22,9 +22,7 @@ public static class Map
         for (int i = 0; i < firstDimensionLength; i++)
         {
             for (int j = 0; j < secondDimensionLength; j++)
-            {
                 Console.Write(s_map[i, j]);
-            }
 
             Console.WriteLine();
         }

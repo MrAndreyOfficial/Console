@@ -2,7 +2,7 @@
 
 namespace GameEngine.Data;
 
-public class JsonStorage<T>(string pathToFile) where T : GameData, new()
+public sealed class JsonStorage<T>(string pathToFile) where T : GameData, new()
 {
     public void Save(T data)
     {
@@ -11,14 +11,14 @@ public class JsonStorage<T>(string pathToFile) where T : GameData, new()
         File.WriteAllText(pathToFile, json);
     }
 
-    public object Load()
+    public T? Load()
     {
         if (File.Exists(pathToFile) == false)
             return new T();
 
         var content = File.ReadAllText(pathToFile);
-        var json = JsonConvert.DeserializeObject(content, typeof(T));
+        var json = JsonConvert.DeserializeObject<T>(content);
 
-        return json!;
+        return json;
     }
 }

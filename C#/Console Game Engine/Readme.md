@@ -2,6 +2,12 @@ This is a small game engine for simple console games.
 
 JSON serializer: [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json)
 
+What's new:
+```
+Added generics: JsonStorage.Load<T> and Text<T>
+Sealed classes: Player, Text, JsonStorage
+```
+
 # Examples:
 
 ## 1. Maze Game
@@ -73,17 +79,17 @@ while (true)
 ```
 using GameEngine.Data;
 
-var storage = new JsonStorage<Data>("data.json");
+var storage = new JsonStorage<Data>("D://data.json");
 
 var data = new Data { Name = "Tom", Score = 30 };
 
 storage.Save(data);
 
-data = storage.Load() as Data;
+data = storage.Load();
 
 Console.WriteLine(data);
 
-public class Data : GameData
+public sealed class Data : GameData
 {
     public string Name { get; init; } = string.Empty;
     public int Score { get; init; } = 0;
@@ -124,14 +130,14 @@ GameEngine.Math:
         Generate(double, double)
 
 GameEngine.UI:
-    public class Text(Vector position, string content):
-        public string Content => content;
+    public class Text<T>(Vector position, T content):
+        public T Content => content;
 
-        public void UpdateText(string content = "")
+        public void UpdateText(T content = default!)
 
 GameEngine.Data:
     public abstract class GameData
     public class JsonStorage<T>(string pathToFile) where T : GameData, new():
         public void Save(T data)
-        public object Load()
+        public T? Load<T>()
 ```
