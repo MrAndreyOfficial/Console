@@ -113,9 +113,10 @@ Console.WriteLine(text.Reverse()); // Output: #C
 ## Classes and their methods:
 ```
 GameEngine.Input:
-    static class Input:
+    public static class Input:
         public static ConsoleKey GetKey(ConsoleKey key)
         public static bool IsPressedKey(ConsoleKey key)
+        public static string InputFromKeyboard(string tip = "", char seperator = '\0')
 
 GameEngine.Main:
     public abstract class GameObject(Vector position, char? symbol):
@@ -153,5 +154,5 @@ GameEngine.Data:
         public void Save(T data)
         public T? Load<T>()
     public static StringExtensions:
-        public static string Reverse(string, string tip = "", char seperator = '\0') throws NullReferenceException if value is null
+        public static string Reverse(string) throws NullReferenceException if value is null
 ```
