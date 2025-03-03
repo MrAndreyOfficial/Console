@@ -4,8 +4,9 @@ JSON serializer: [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Jso
 
 What's new:
 ```
-Added generics: JsonStorage.Load<T> and Text<T>
-Sealed classes: Player, Text, JsonStorage
+Added:
+StringExtensions class
+Input.InputFromKeyboard method
 ```
 
 # Examples:
@@ -98,6 +99,17 @@ public sealed class Data : GameData
 }
 ```
 
+## 4. User input from keyboard:
+```
+using ConsoleGameEngine.Data;
+using GameEngine.Input;
+
+var text = Input.InputFromKeyboard("Enter any text: "); // Input: C#
+
+Console.WriteLine(text); // Output: C#
+Console.WriteLine(text.Reverse()); // Output: #C
+```
+
 ## Classes and their methods:
 ```
 GameEngine.Input:
@@ -140,4 +152,6 @@ GameEngine.Data:
     public class JsonStorage<T>(string pathToFile) where T : GameData, new():
         public void Save(T data)
         public T? Load<T>()
+    public static StringExtensions:
+        public static string Reverse(string, string tip = "", char seperator = '\0') throws NullReferenceException if value is null
 ```
